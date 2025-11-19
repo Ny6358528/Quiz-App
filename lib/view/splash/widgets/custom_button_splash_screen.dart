@@ -9,12 +9,12 @@ import 'package:quizapp/core/resources/string_managers.dart';
 import '../widgets/custom_logo_splash_screen.dart';
 class CustomButtonSplashScreen extends StatelessWidget {
   const CustomButtonSplashScreen({
-    super.key,
+    super.key, required this.onPressed,
   });
-
+  final VoidCallback onPressed;
   @override
   Widget build(BuildContext context) {
-    return MaterialButton(onPressed: (){},child:
+    return MaterialButton(onPressed: onPressed,child:
     Container(
       width: double.infinity,
       height: HeightManagers.h70,
