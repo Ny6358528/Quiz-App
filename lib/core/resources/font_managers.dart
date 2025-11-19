@@ -1,0 +1,10 @@
+class FontManagers {
+  static const String kMontserrat="Montserrat";
+}
+
+class FontSize{
+  static const double f12=12;
+
+  static const double f21=21;
+  static const double f400=400;
+}
