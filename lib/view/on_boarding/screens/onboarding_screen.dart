@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:quizapp/core/resources/string_managers.dart';
+
 import '../../../controller/onboarding/onboarding_controller.dart';
-import '../../../core/resources/asset_values_managers.dart';
-import '../../../core/resources/colors_managers.dart';
-import '../../../core/resources/font_managers.dart';
-import '../../../core/resources/height_managers.dart';
+
+import '../../../core/resources/const_values.dart';
 import '../widgets/custom_bottom_navigation_bar_on_boarding_screen.dart';
+import '../widgets/custom_items_on_boarding_screen.dart';
 
 class OnboardingScreen extends StatefulWidget {
    OnboardingScreen({super.key});
@@ -37,32 +35,10 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
         children: [
           Expanded(
             child: PageView.builder(
-              itemCount: 3,
+              itemCount: ConstValues.onBoardingList.length,
               itemBuilder: (context, index) {
-                return Center(
-                  child: SingleChildScrollView(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        SvgPicture.asset(
-                          AssetValuesManagers.kOnBoardingImage1,
-                        ),
-                        SizedBox(height: HeightManagers.h108,),
-
-                        Text(StringManagers.kSynonymsforQUIZ,style: TextStyle(
-                          fontSize: FontSize.f32,
-                          fontWeight: FontWeight.w600,
-                          color: ColorsManagers.kSecenrdyColor,
-                        ),),
-                        SizedBox(height: HeightManagers.h24,),
-                        Text(StringManagers.kSynonymsforQUIZ,style: TextStyle(
-                          fontSize: FontSize.f21,
-                          fontWeight: FontWeight.w400,
-                          color: ColorsManagers.kSecenrdyColor,
-                        ),),
-                      ]
-                    ),
-                  ),
+                return CustomItemsOnBoardingScreen(
+                  onBoardingModel: ConstValues.onBoardingList[index],
                 );
               },
             ),
