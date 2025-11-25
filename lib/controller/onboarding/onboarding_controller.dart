@@ -25,4 +25,9 @@ class OnboardingController {
     }
     inPutDotStream.add(currentPage);
   }
+
+  void Disposed(){
+    _dotStreamController.close();
+    inPutDotStream.close();
+  }
 }
