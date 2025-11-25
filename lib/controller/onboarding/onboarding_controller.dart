@@ -17,4 +17,12 @@ class OnboardingController {
     currentPage=index;
     inPutDotStream.add(currentPage);
   }
+  void onNextTapped(){
+    if(currentPage==2){
+      currentPage=0;
+    }else{
+      currentPage++;
+    }
+    inPutDotStream.add(currentPage);
+  }
 }

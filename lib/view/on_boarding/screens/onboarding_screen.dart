@@ -44,9 +44,12 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             child: CustomBottomNavigationBarOnBoardingScreen(
               dotcount: 3,
            outPutDotStream: onboardingController.outPutDotStream,
-              onTap: (index){
+              onTapDotIndcator: (index){
 onboardingController.onDotTapped(index);
 
+              },
+              onTapNext: (){
+onboardingController.onNextTapped();
               },
             ),
           ),
