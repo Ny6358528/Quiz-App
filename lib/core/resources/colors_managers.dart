@@ -4,4 +4,5 @@ class ColorsManagers {
   static const Color kPrimaryColor=Color(0xff473F97);
   static const Color kSecenrdyColor=Color(0xff3D003E);
   static const Color kWhiteColor=Color(0xffFFFFFF);
+  static const Color kGreyColor=Color(0xffD8D8D8A8);
 }
