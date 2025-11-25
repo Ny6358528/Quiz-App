@@ -11,10 +11,11 @@ import 'package:quizapp/core/resources/width_managers.dart';
 
 class CustomBottomNavigationBarOnBoardingScreen extends StatelessWidget {
   const CustomBottomNavigationBarOnBoardingScreen({
-    super.key, required this.dotcount, required this.outPutDotStream, this.onTapNext, required this.onTapDotIndcator,
+    super.key, required this.dotcount, required this.outPutDotStream, this.onTapNext, required this.onTapDotIndcator, required this.outPutNextStream,
   });
 final int dotcount;
  final Stream<int> outPutDotStream;
+  final Stream<int> outPutNextStream;
   final GestureTapCallback? onTapNext;
  final void Function(int index) onTapDotIndcator;
   @override
@@ -57,11 +58,16 @@ final int dotcount;
 
           ,InkWell(
             onTap:onTapNext ,
-            child: Text(StringManagers.kNext,style: TextStyle(
-                fontSize: FontSize.f15,
-                color: ColorsManagers.kSecenrdyColor,
-                fontWeight: FontWeight.w400
-            ),),
+            child: StreamBuilder(
+              stream: outPutNextStream,
+              builder: (context, asyncSnapshot) {
+                return Text(  asyncSnapshot==null?  StringManagers.kNext:  asyncSnapshot.data==dotcount-1?StringManagers.kStart:StringManagers.kNext                                      ,style: TextStyle(
+                    fontSize: FontSize.f15,
+                    color: ColorsManagers.kSecenrdyColor,
+                    fontWeight: FontWeight.w400
+                ),);
+              }
+            ),
           ),
         ],
       ),

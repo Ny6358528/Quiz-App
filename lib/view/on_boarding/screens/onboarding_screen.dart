@@ -35,6 +35,9 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
         children: [
           Expanded(
             child: PageView.builder(
+              onPageChanged: (index){
+                onboardingController.onDotTapped(index);
+              } ,
               controller: onboardingController.onBoardingPageViewController,
               itemCount: ConstValues.onBoardingList.length,
               itemBuilder: (context, index) {
@@ -54,6 +57,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
           Align(
             alignment: Alignment.bottomCenter,
             child: CustomBottomNavigationBarOnBoardingScreen(
+              outPutNextStream: onboardingController.outPutNextStream,
               dotcount: 3,
            outPutDotStream: onboardingController.outPutDotStream,
               onTapDotIndcator: (index){
