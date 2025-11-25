@@ -11,12 +11,13 @@ import 'package:quizapp/core/resources/width_managers.dart';
 
 class CustomBottomNavigationBarOnBoardingScreen extends StatelessWidget {
   const CustomBottomNavigationBarOnBoardingScreen({
-    super.key, required this.dotcount, required this.outPutDotStream, this.onTapNext, required this.onTapDotIndcator, required this.outPutNextStream,
+    super.key, required this.dotcount, required this.outPutDotStream,required this.onTapNext, required this.onTapDotIndcator, required this.outPutNextStream, required this.onTapSkip,
   });
 final int dotcount;
  final Stream<int> outPutDotStream;
   final Stream<int> outPutNextStream;
-  final GestureTapCallback? onTapNext;
+  final GestureTapCallback onTapNext;
+  final GestureTapCallback onTapSkip;
  final void Function(int index) onTapDotIndcator;
   @override
   Widget build(BuildContext context) {
@@ -25,11 +26,14 @@ final int dotcount;
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text(StringManagers.kSkip,style: TextStyle(
-              fontSize: FontSize.f15,
-              color: ColorsManagers.kSecenrdyColor,
-              fontWeight: FontWeight.w400
-          ),),  StreamBuilder(
+          InkWell(
+            onTap: onTapSkip,
+            child: Text(StringManagers.kSkip,style: TextStyle(
+                fontSize: FontSize.f15,
+                color: ColorsManagers.kSecenrdyColor,
+                fontWeight: FontWeight.w400
+            ),),
+          ),  StreamBuilder(
             stream: outPutDotStream,
             builder: (context, asyncSnapshot) {
               return DotsIndicator(
@@ -64,7 +68,7 @@ final int dotcount;
                 return Text(  asyncSnapshot==null?  StringManagers.kNext:  asyncSnapshot.data==dotcount-1?StringManagers.kStart:StringManagers.kNext                                      ,style: TextStyle(
                     fontSize: FontSize.f15,
                     color: ColorsManagers.kSecenrdyColor,
-                    fontWeight: FontWeight.w400
+                    fontWeight: FontWeight.w600
                 ),);
               }
             ),

@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/cupertino.dart';
+import 'package:quizapp/core/resources/routes_managers.dart';
 
 class OnboardingController {
   int currentPage=0;
@@ -31,9 +32,9 @@ class OnboardingController {
     inPutNextStream.add(currentPage);
     onBoardingPageViewController.animateToPage(currentPage, duration: Duration(milliseconds: 400), curve: Curves.easeIn);
   }
-  void onNextTapped(){
+  void onNextTapped(BuildContext context){
     if(currentPage==2){
-      currentPage=0;
+      goToLoginScreen(context: context);
     }else{
       currentPage++;
     }
@@ -41,6 +42,9 @@ class OnboardingController {
     inPutDotStream.add(currentPage);
     inPutNextStream.add(currentPage);
 
+  }
+  void goToLoginScreen({required BuildContext context}){
+    Navigator.pushNamedAndRemoveUntil(context, RoutesNamed.kLoginScreen,  (routes)=>false);
   }
 
   void Disposed(){

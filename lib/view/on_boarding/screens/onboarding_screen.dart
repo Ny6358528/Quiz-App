@@ -57,6 +57,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
           Align(
             alignment: Alignment.bottomCenter,
             child: CustomBottomNavigationBarOnBoardingScreen(
+              onTapSkip: (){onboardingController.goToLoginScreen(context: context);},
               outPutNextStream: onboardingController.outPutNextStream,
               dotcount: 3,
            outPutDotStream: onboardingController.outPutDotStream,
@@ -65,7 +66,7 @@ onboardingController.onDotTapped(index);
 
               },
               onTapNext: (){
-onboardingController.onNextTapped();
+onboardingController.onNextTapped(context);
               },
             ),
           ),
