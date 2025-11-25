@@ -35,6 +35,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
         children: [
           Expanded(
             child: PageView.builder(
+              controller: onboardingController.onBoardingPageViewController,
               itemCount: ConstValues.onBoardingList.length,
               itemBuilder: (context, index) {
                 return CustomItemsOnBoardingScreen(

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:quizapp/core/resources/padding_managers.dart';
 import 'package:quizapp/core/resources/string_managers.dart';
 
 import '../../../core/resources/asset_values_managers.dart';
@@ -15,24 +16,25 @@ class CustomItemsOnBoardingScreen extends StatelessWidget {
 final OnBoardingModel onBoardingModel;
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: SingleChildScrollView(
-        child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              SvgPicture.asset(
-                onBoardingModel.onBoardingImage,
-              ),
-              SizedBox(height: HeightManagers.h108,),
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: PaddingManagers.p46),
+      child: Center(
+        child: SingleChildScrollView(
+          child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                SvgPicture.asset(
+                  onBoardingModel.onBoardingImage,
+                ),
+                SizedBox(height: HeightManagers.h108,),
 
-              Text(onBoardingModel.onBoardingTitle,style: TextStyle(
-                fontSize: FontSize.f32,
-                fontWeight: FontWeight.w600,
-                color: ColorsManagers.kSecenrdyColor,
-              ),),
-              SizedBox(height: HeightManagers.h24,),
-              Center(
-                child: Text(textAlign: TextAlign.center,
+                Text(onBoardingModel.onBoardingTitle,style: TextStyle(
+                  fontSize: FontSize.f32,
+                  fontWeight: FontWeight.w600,
+                  color: ColorsManagers.kSecenrdyColor,
+                ),),
+                SizedBox(height: HeightManagers.h24,),
+                Text(textAlign: TextAlign.center,
 
 
                   onBoardingModel.onBoardingDescription,style: TextStyle(
@@ -40,8 +42,8 @@ final OnBoardingModel onBoardingModel;
                     fontWeight: FontWeight.w400,
                     color: ColorsManagers.kSecenrdyColor,
                   ),),
-              ),
-            ]
+              ]
+          ),
         ),
       ),
     );
