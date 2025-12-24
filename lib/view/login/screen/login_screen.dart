@@ -25,7 +25,9 @@ class LoginScreen extends StatelessWidget {
             SizedBox(height: HeightManagers.h158,),
             EnterYourNameLoginScreen(),
             SizedBox(height: HeightManagers.h10,),
-            TextFormFieldLoginScreen()
+            TextFormFieldLoginScreen(
+              onChanged: (value){},
+            )
           ],
         ),
       ),
