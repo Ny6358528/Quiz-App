@@ -3,6 +3,8 @@ import 'dart:async';
 import 'package:flutter/cupertino.dart';
 import 'package:quizapp/core/resources/routes_managers.dart';
 
+import '../../core/resources/const_values.dart';
+
 class OnboardingController {
   int currentPage=0;
 
@@ -12,6 +14,7 @@ class OnboardingController {
   late StreamController<int> _nextStreamController;
   late Sink<int> inPutNextStream;
   late Stream<int> outPutNextStream;
+  late bool isTaddedIndcator=false;
   late PageController onBoardingPageViewController;
   OnboardingController(){
     _dotStreamController=StreamController();
@@ -33,7 +36,7 @@ class OnboardingController {
     onBoardingPageViewController.animateToPage(currentPage, duration: Duration(milliseconds: 400), curve: Curves.easeIn);
   }
   void onNextTapped(BuildContext context){
-    if(currentPage==2){
+    if(currentPage==  ConstValues.onBoardingList.length-1){
       goToLoginScreen(context: context);
     }else{
       currentPage++;
