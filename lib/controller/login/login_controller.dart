@@ -39,7 +39,7 @@ void onChangedTextFormField(){
  void navigateToQuizScreen(BuildContext context){
    Navigator.pushNamedAndRemoveUntil(
        arguments: controllerTextNamed.text,
-       context, RoutesNamed.kQuizScreen, (routes)=>false);
+       context, RoutesNamed.kQuizScreen, (routes)=>true);
  }
  dispose(){
    streamControllerIsActiveButtom.close();
