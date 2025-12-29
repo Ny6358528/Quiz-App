@@ -2,26 +2,27 @@ import 'package:flutter/material.dart';
 import 'package:quizapp/core/resources/colors_managers.dart';
 import 'package:quizapp/core/resources/font_managers.dart';
 import 'package:quizapp/core/resources/padding_managers.dart';
-import 'package:quizapp/core/resources/string_managers.dart';
 class CustomAppBarOfQuizScreen extends StatelessWidget implements PreferredSizeWidget{
   const CustomAppBarOfQuizScreen({
-    super.key,
+    super.key, required this.textName, required this.onTap,
   });
-
+  final String textName;
+  final GestureTapCallback onTap;
   @override
   Widget build(BuildContext context) {
+
     return AppBar(
 
       backgroundColor: ColorsManagers.kLightWhiteColor,
       leadingWidth: 140,
-      leading: InkWell(onTap:(){
-        Navigator.of(context).pop();
-      } ,child:  Padding(
+      leading: InkWell(onTap:onTap
+
+       ,child:  Padding(
         padding: const EdgeInsets.only(left: PaddingManagers.p24),
         child: Row(
           children: [
             Icon(Icons.arrow_back_ios,color: ColorsManagers.kPrimaryColor,size: FontSize.f12,),
-            Text(StringManagers.kPrevious,style: TextStyle(fontSize: FontSize.f12,color: ColorsManagers.kPrimaryColor,fontWeight: FontWeight.w600),)
+            Text(textName,style: TextStyle(fontSize: FontSize.f12,color: ColorsManagers.kPrimaryColor,fontWeight: FontWeight.w600),)
           ],
         ),
       ),

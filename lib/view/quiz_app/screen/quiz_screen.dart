@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../core/resources/colors_managers.dart';
+import '../../../core/resources/string_managers.dart';
 import '../widget/custom_app_bar_of_quiz_screen.dart';
 
 class QuizScreen extends StatelessWidget {
@@ -14,7 +15,12 @@ class QuizScreen extends StatelessWidget {
 
     return Scaffold(
       backgroundColor: ColorsManagers.kLightWhiteColor,
-      appBar: CustomAppBarOfQuizScreen(),
+      appBar: CustomAppBarOfQuizScreen(
+        textName: StringManagers.kPrevious,
+        onTap: (){
+           Navigator.of(context).pop();
+        },
+      ),
       body: Container(),
     );
   }
