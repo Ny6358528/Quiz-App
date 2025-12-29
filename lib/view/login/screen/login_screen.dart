@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:quizapp/core/resources/colors_managers.dart';
 import 'package:quizapp/core/resources/padding_managers.dart';
-import '../../../core/resources/font_managers.dart';
 import '../../../core/resources/height_managers.dart';
+import '../widget/custom_start_buttom_login_page.dart';
 import '../widget/enter_your_name_login_screen.dart' show EnterYourNameLoginScreen;
 import '../widget/logo_login_screen.dart';
 import '../widget/text_form_field_login_screen.dart';
@@ -27,7 +26,10 @@ class LoginScreen extends StatelessWidget {
             SizedBox(height: HeightManagers.h10,),
             TextFormFieldLoginScreen(
               onChanged: (value){},
-            )
+            ),
+            SizedBox(height: HeightManagers.h158,),
+
+            CustomStartButtomLoginPage()
           ],
         ),
       ),
