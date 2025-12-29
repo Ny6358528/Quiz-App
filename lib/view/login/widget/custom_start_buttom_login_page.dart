@@ -5,15 +5,17 @@ import '../../../core/resources/font_managers.dart';
 
 class CustomStartButtomLoginPage extends StatelessWidget {
   const CustomStartButtomLoginPage({
-    super.key,
+    super.key, required this.onPressed,
   });
-
+  final VoidCallback onPressed;
   @override
   Widget build(BuildContext context) {
     return Center(
       child: MaterialButton(
 
-          child: Container(
+         onPressed:onPressed,
+
+         child:  Container(
             height: 60,
             width: double.infinity,
             decoration: BoxDecoration(
@@ -24,10 +26,8 @@ class CustomStartButtomLoginPage extends StatelessWidget {
                 color: ColorsManagers.kWhiteColor,
                 fontSize: FontSize.f24
             ),)) ,
-          ),
-          onPressed: (){
-
-          }),
+          )
+      ),
     );
   }
 }
