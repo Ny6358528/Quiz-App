@@ -9,6 +9,7 @@ class TextFormFieldLoginScreen extends StatelessWidget {
   });
   final ValueChanged<String> onChanged;
   final FormFieldValidator<String> validator;
+
   final GlobalKey<FormState>formKey;
   @override
   Widget build(BuildContext context) {
@@ -20,11 +21,11 @@ class TextFormFieldLoginScreen extends StatelessWidget {
         decoration: InputDecoration(
             border:OutlineInputBorder(
                 borderRadius: BorderRadius.circular(20),
-                borderSide: BorderSide(color: ColorsManagers.kPrimaryColor)
+                borderSide: BorderSide(color:ColorsManagers.kPrimaryColor)
             ),
           focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(20),
-              borderSide: BorderSide(color: ColorsManagers.kPrimaryColor)
+              borderSide: BorderSide(color:ColorsManagers.kPrimaryColor)
           ),
         ),
       ),

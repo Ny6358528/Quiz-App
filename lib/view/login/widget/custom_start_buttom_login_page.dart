@@ -4,30 +4,38 @@ import 'package:quizapp/core/resources/string_managers.dart';
 import '../../../core/resources/font_managers.dart';
 
 class CustomStartButtomLoginPage extends StatelessWidget {
-  const CustomStartButtomLoginPage({
-    super.key, required this.onPressed,
+   CustomStartButtomLoginPage({
+    super.key, required this.onPressed,required this.OutPutStreamBuilderIsActive
   });
   final VoidCallback onPressed;
+Stream<bool>OutPutStreamBuilderIsActive;
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: MaterialButton(
-
-         onPressed:onPressed,
-
-         child:  Container(
-            height: 60,
-            width: double.infinity,
-            decoration: BoxDecoration(
-                color: ColorsManagers.kPrimaryColor,
-                borderRadius: BorderRadius.circular(20)
+    return 
+       StreamBuilder(
+         stream: OutPutStreamBuilderIsActive,
+         builder: (context, asyncSnapshot) {
+           return Center(
+            child: MaterialButton(
+                 
+               onPressed:asyncSnapshot.data==false?null:asyncSnapshot.data==true?onPressed:null,
+                 
+               child:  Container(
+                  height: 60,
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                      color:asyncSnapshot.data==false?ColorsManagers.kGreyColor:asyncSnapshot.data==true? ColorsManagers.kPrimaryColor:ColorsManagers.kGreyColor,
+                      borderRadius: BorderRadius.circular(20)
+                  ),
+                  child:Center(child: Text(StringManagers.kStart,style: TextStyle(
+                      color: ColorsManagers.kWhiteColor,
+                      fontSize: FontSize.f24
+                  ),)) ,
+                )
             ),
-            child:Center(child: Text(StringManagers.kStart,style: TextStyle(
-                color: ColorsManagers.kWhiteColor,
-                fontSize: FontSize.f24
-            ),)) ,
-          )
-      ),
-    );
+                 
+               );
+         }
+       );
   }
 }

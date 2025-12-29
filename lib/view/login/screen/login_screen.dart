@@ -22,6 +22,12 @@ class _LoginScreenState extends State<LoginScreen> {
     _loginController=LoginController();
   }
   @override
+  void dispose() {
+    _loginController.dispose();
+    // TODO: implement dispose
+    super.dispose();
+  }
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
 
@@ -44,9 +50,8 @@ class _LoginScreenState extends State<LoginScreen> {
                return _loginController.validetorName(value!);
                   },
                   onChanged: (value) {
-                    if(_loginController.formKey.currentState!.validate()){
-                      print("object");
-                    }
+
+ return _loginController.onChangedTextFormField();
 
                   }
                 ),
@@ -55,7 +60,8 @@ class _LoginScreenState extends State<LoginScreen> {
             SizedBox(height: HeightManagers.h158,),
 
             CustomStartButtomLoginPage(
-              onPressed: (){},
+              
+              onPressed: (){}, OutPutStreamBuilderIsActive: _loginController.OutputStreamControllerIsActiveButtom,
             )
           ],
         ),
