@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:quizapp/core/resources/routes_managers.dart';
 
 class LoginController {
   String name="";
@@ -32,6 +33,9 @@ void onChangedTextFormField(){
    InputStreamControllerIsActiveButtom.add(buttomIsActive);
 
 
+ }
+ void navigateToQuizScreen(BuildContext context){
+   Navigator.pushNamedAndRemoveUntil(context, RoutesNamed.kQuizScreen, (routes)=>false);
  }
  dispose(){
    streamControllerIsActiveButtom.close();

@@ -61,7 +61,9 @@ class _LoginScreenState extends State<LoginScreen> {
 
             CustomStartButtomLoginPage(
               
-              onPressed: (){}, OutPutStreamBuilderIsActive: _loginController.OutputStreamControllerIsActiveButtom,
+              onPressed: (){
+                _loginController.navigateToQuizScreen(context);
+              }, OutPutStreamBuilderIsActive: _loginController.OutputStreamControllerIsActiveButtom,
             )
           ],
         ),
