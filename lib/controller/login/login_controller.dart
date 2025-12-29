@@ -10,12 +10,14 @@ class LoginController {
  late  StreamController<bool> streamControllerIsActiveButtom;
  late  Sink<bool> InputStreamControllerIsActiveButtom;
  late  Stream<bool>  OutputStreamControllerIsActiveButtom;
+ late  TextEditingController controllerTextNamed;
  LoginController(){
    formKey=GlobalKey();
    streamControllerIsActiveButtom=StreamController();
    InputStreamControllerIsActiveButtom=streamControllerIsActiveButtom.sink;
    OutputStreamControllerIsActiveButtom=streamControllerIsActiveButtom.stream;
    InputStreamControllerIsActiveButtom.add(buttomIsActive);
+   controllerTextNamed=TextEditingController();
  }
  String? validetorName(String value){
    if(value.isEmpty){
@@ -35,7 +37,9 @@ void onChangedTextFormField(){
 
  }
  void navigateToQuizScreen(BuildContext context){
-   Navigator.pushNamedAndRemoveUntil(context, RoutesNamed.kQuizScreen, (routes)=>false);
+   Navigator.pushNamedAndRemoveUntil(
+       arguments: controllerTextNamed.text,
+       context, RoutesNamed.kQuizScreen, (routes)=>false);
  }
  dispose(){
    streamControllerIsActiveButtom.close();

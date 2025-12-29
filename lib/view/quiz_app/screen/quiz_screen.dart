@@ -5,6 +5,8 @@ class QuizScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    String name=ModalRoute.of(context)!.settings.arguments as String;
+    print(name);
     return Scaffold();
   }
 }

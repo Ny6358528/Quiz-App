@@ -45,11 +45,14 @@ class _LoginScreenState extends State<LoginScreen> {
 
 
               TextFormFieldLoginScreen(
+                controller: _loginController.controllerTextNamed,
                 formKey: _loginController.formKey,
                   validator: ( value) {
                return _loginController.validetorName(value!);
                   },
                   onChanged: (value) {
+                 _loginController.controllerTextNamed.text=value;
+                 print( _loginController.controllerTextNamed.text);
 
  return _loginController.onChangedTextFormField();
 
