@@ -3,10 +3,13 @@
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 import 'package:quizapp/core/resources/font_managers.dart';
+import 'package:quizapp/core/resources/height_managers.dart';
+
 import '../../../core/resources/colors_managers.dart';
 import '../../../core/resources/padding_managers.dart';
 import '../../../core/resources/string_managers.dart';
 import '../widget/custom_app_bar_of_quiz_screen.dart';
+import '../widget/custom_item_radio_quiz_screen.dart';
 import '../widget/custom_question_title_quiz_screen.dart';
 
 class QuizScreen extends StatefulWidget {
@@ -69,7 +72,9 @@ class _QuizScreenState extends State<QuizScreen> {
 
 
                 ],
-              )
+              ),
+              SizedBox(height: HeightManagers.h70,),
+              CustomItemRadioQuizScreen(),
 
             ],
           ),
