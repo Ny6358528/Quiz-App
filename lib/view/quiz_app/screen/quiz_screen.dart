@@ -11,6 +11,7 @@ import '../../../core/resources/padding_managers.dart';
 import '../../../core/resources/string_managers.dart';
 import '../widget/custom_app_bar_of_quiz_screen.dart';
 
+
 import '../widget/custom_list_view_options_quiz_app.dart';
 import '../widget/custom_question_title_quiz_screen.dart';
 
@@ -85,7 +86,8 @@ late  QuizController _quizController;
                   ],
                 ),
                 SizedBox(height: HeightManagers.h70,),
-                CustomListViewOptionsQuizApp(quizController: _quizController)
+                customListViewOptionsQuizApp(itemCount: _quizController.options.length,
+                options:_quizController.options ,)
         
         
               ],

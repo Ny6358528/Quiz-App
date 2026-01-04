@@ -8,8 +8,11 @@ import '../../../core/resources/colors_managers.dart';
 
 class CustomItemRadioQuizScreen extends StatelessWidget {
   const CustomItemRadioQuizScreen({
-    super.key,
+    super.key, required this.options, required this.onTap,  this.isSelected=false,
   });
+final String options;
+  final GestureTapCallback onTap;
+  final bool isSelected;
 
   @override
   Widget build(BuildContext context) {
@@ -25,25 +28,29 @@ class CustomItemRadioQuizScreen extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text("data",style: TextStyle(
+            Text(options,style: TextStyle(
                 fontWeight: FontWeight.w600,
                 color: ColorsManagers.kPrimaryColor,
                 fontSize: FontSize.f20
             ),),
-            Container(
-                width: 20,
-                height: 20,
-                decoration: ShapeDecoration(shape:
-                CircleBorder(
-                  side: BorderSide(
-                    color: ColorsManagers.kPrimaryColor,
-                    width: 1,
+          isSelected?Icon(Icons.check_circle,color: ColorsManagers.kPrimaryColor)   :InkWell(
+              onTap:onTap ,
+
+              child: Container(
+                  width: 20,
+                  height: 20,
+                  decoration: ShapeDecoration(shape:
+                  CircleBorder(
+                    side: BorderSide(
+                      color: ColorsManagers.kPrimaryColor,
+                      width: 1,
+
+                    ),
 
                   ),
-
-                ),
-                    color: ColorsManagers.kWhiteColor
-                )
+                      color: ColorsManagers.kWhiteColor
+                  )
+              ),
             ),
 
           ],

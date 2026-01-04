@@ -1,31 +1,30 @@
 
 import 'package:flutter/material.dart';
+
 import 'package:quizapp/core/resources/height_managers.dart';
 
+import 'custom_item_radio_quiz_screen.dart';
 
-import '../../../controller/quiz/quiz_controller.dart';
-
-import '../widget/custom_item_radio_quiz_screen.dart';
-
-
-class CustomListViewOptionsQuizApp extends StatelessWidget {
-  const CustomListViewOptionsQuizApp({
-    super.key,
-    required QuizController quizController,
-  }) : _quizController = quizController;
-
-  final QuizController _quizController;
-
+class customListViewOptionsQuizApp extends StatelessWidget {
+  const customListViewOptionsQuizApp({super.key, required this.options, required this.itemCount});
+final List <String> options;
+final int itemCount;
   @override
   Widget build(BuildContext context) {
-    return ListView.separated(
-        physics: NeverScrollableScrollPhysics(),
-        shrinkWrap: true,
+     return ListView.separated(
+    physics: NeverScrollableScrollPhysics(),
+shrinkWrap: true,
 
-        itemBuilder: (context,index){
-          return   CustomItemRadioQuizScreen();
-        }, separatorBuilder: (context,index){
-      return  SizedBox(height: HeightManagers.h24,);
-    }, itemCount:_quizController.options.length );
-  }
+itemBuilder: (context,index){
+return   CustomItemRadioQuizScreen(
+options: options[index], onTap: () {  },
+    isSelected:true
+);
+}, separatorBuilder: (context,index){
+return  SizedBox(height: HeightManagers.h24,);
+}, itemCount:itemCount);
 }
+}
+
+
+
